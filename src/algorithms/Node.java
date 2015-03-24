@@ -1,17 +1,18 @@
 package algorithms;
 
 public class Node {
-	private int pathCost;
+	private GNode graphNode;
 	private Node parent;
-	private int state;
+	private double g;
+	private double h;
+	private double f;
 	// Possible also some kind of action ?
 	
-	public Node(int pC, Node p, int s) {
-		this.pathCost = pC;
-		this.parent = p;
-		this.state = s;
+	public Node(GNode gn, Node p, double h) {
+		this.setGraphNode(gn);
+		this.setParent(p);
+		this.setH(h);
 	}
-	
 	
 	/****************************************
 	 * 										*
@@ -24,16 +25,37 @@ public class Node {
 	public void setParent(Node parent) {
 		this.parent = parent;
 	}
-	public int getPathCost() {
-		return pathCost;
+	public GNode getGraphNode() {
+		return graphNode;
 	}
-	public void setPathCost(int pathCost) {
-		this.pathCost = pathCost;
+	public void setGraphNode(GNode graphNode) {
+		this.graphNode = graphNode;
 	}
-	public int getState() {
-		return state;
+	public String getState() {
+		return graphNode.getState();
 	}
-	public void setState(int state) {
-		this.state = state;
+
+	public double getG() {
+		return g;
+	}
+
+	public void setG(double g) {
+		this.g = g;
+	}
+
+	public double getH() {
+		return h;
+	}
+
+	public void setH(double h) {
+		this.h = h;
+	}
+
+	public double getF() {
+		return f;
+	}
+
+	public void setF(double f) {
+		this.f = f;
 	}
 }
