@@ -26,22 +26,22 @@ public class UniformSearch {
 			Node x = frontier.poll();
 			explored.put(x.getState(), x);
 			
-			// First Node is target Node
+			// if Frontier Node is target Node
 			if(x.getState().equals(target.getState())) {
 				goal = x;
 				break;
 			}
 			
 			else {
-				Set<GNode> neighbors; // = graph.getNeightbors(x.getState) or something like that ---- To be implemented with the graph
+				Set<GNode> neighbors = null; // = graph.getNeightbors(x.getState) or something like that ---- To be implemented with the graph
 				for(GNode neighbor : neighbors) {
-					
 					//Check if the node have been explored
 					if(explored.get(neighbor.getState()) == null){
-						Node n = inFrontierNotExplored.get(neighbor.getState());
-						double g = x.getG() + 0/* some calculated manhattanDistance between neighbor and target*/;
 						
-						//Check if it is in the frontier queue
+						Node n = inFrontierNotExplored.get(neighbor.getState());
+						double g = x.getG() + 0/* some calculated manhattanDistance between x and n*/;
+						
+						//Check if the neighbor is in the frontier queue
 						if( n == null) {
 							
 							//It wasn't so now construct the node and add it to frontier and inFrontierNotExplored
