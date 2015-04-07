@@ -24,6 +24,7 @@ public class UniformSearch {
 		Node goal = null;
 		while(!frontier.isEmpty()) {
 			Node x = frontier.poll();
+			inFrontierNotExplored.remove(x.getState());
 			explored.put(x.getState(), x);
 			
 			// if Frontier Node is target Node
@@ -43,7 +44,7 @@ public class UniformSearch {
 						
 						//Check if the neighbor is in the frontier queue
 						if( n == null) {
-							
+
 							//It wasn't so now construct the node and add it to frontier and inFrontierNotExplored
 							Node n1 = new Node(neighbor, x, 0 /*Need to implement distance calculator!!!!!!!!!! */);
 							inFrontierNotExplored.put(n1.getState(), n1);
